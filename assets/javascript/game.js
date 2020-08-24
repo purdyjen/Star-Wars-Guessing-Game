@@ -96,6 +96,11 @@ document.getElementById("letter-buttons").addEventListener("click", function () 
   document.getElementById('buttons').classList.toggle("hidden");
 }, false);
 
+//sound effects
+var winSound = new Audio("../sounds/PM_FN_Events_LvlUps_PowerUps_12.mp3");
+var correctSound = new Audio("../sounds/sound_spark_Laser-Like_Synth_Laser_Sweep_Burst_13.mp3")
+var incorrectSound = new Audio("../sounds/zapsplat_science_fiction_laser_fire_002_17743.mp3")
+
 document
   .getElementById("play-again")
   .addEventListener("click", function newGame() {
@@ -104,7 +109,7 @@ document
     currentWordArray = [ ];
     guessesLeft = 13;
     currentWord;
-    current.textContent = "Current Word:  " + underscore;
+    current.textContent = underscore;
     guessed.textContent = "Wrong Letters Guessed: ";
     remaining.textContent = "Number of Incorrect Guesses Remaining: 10";
     startGame();
@@ -123,7 +128,8 @@ function selectedLetter(letter) {
       if (currentWordArray[index] === letter) {
         underscore[index] = letter;
         word = underscore.join("  ");      //joins array so no commas displayed
-        current.textContent = "Current Word:  " + word + "  ";
+        current.textContent = word;
+        // correctSound.play();
         win();
       }
     }
@@ -139,6 +145,7 @@ function selectedLetter(letter) {
   
     wrongGuess.push(letter);
     guessesLeft--;
+    // incorrectSound.play();
     lose();
     document.getElementById("remaining").textContent =
       "Number of Incorrect Guesses Remaining: " + guessesLeft;
@@ -156,7 +163,8 @@ document.addEventListener("keypress", function(event) {
       if (currentWordArray[index] === guess) {
         underscore[index] = guess;
         word = underscore.join("  ");      //joins array so no commas displayed
-        current.textContent = "Current Word:  " + word + "  ";
+        current.textContent = word;
+        // correctSound.play();
         win();
       }
     }
@@ -173,6 +181,7 @@ document.addEventListener("keypress", function(event) {
     wrongGuess.push(guess);
     guessesLeft--;
     lose();
+    // incorrectSound.play();
     document.getElementById("remaining").textContent =
       "Number of Incorrect Guesses Remaining: " + guessesLeft;
     document.getElementById("guessed").textContent =
@@ -182,6 +191,7 @@ document.addEventListener("keypress", function(event) {
 
 function win() {
   if (underscore.toString() === currentWordArray.toString()) {
+    // winSound.play();
     alert("You win!");
     totalWins++;
     document.getElementById("total-wins").textContent = "Wins: " + totalWins;

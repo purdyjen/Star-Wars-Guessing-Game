@@ -13,6 +13,14 @@ h2 {
     display: inline;
 }
 
+header {
+    margin-top: 50px;
+}
+
+.container-fluid {
+    margin-top: 70px;
+}
+
 #play-again {
     font-family: 'Sigmar One', cursive;
     margin: 30px auto;
