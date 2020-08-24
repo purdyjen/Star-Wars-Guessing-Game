@@ -32,7 +32,7 @@ var underscore = [];
 var wrongGuess = [];
 var currentWordArray = [];
 var totalWins = 0;
-var guessesLeft = 10;
+var guessesLeft = 13;
 var currentWord;
 
 //Choose word randomly
@@ -65,6 +65,7 @@ function startGame() {
   var showUnderscores = document.getElementById("current");
   for (var j = 0; j < currentWordArray.length; j++) {
     showUnderscores.textContent += "  " + underscore[j] + "  ";
+    
   }
 }
 
@@ -78,7 +79,7 @@ document
     underscore = [ ];
     wrongGuess = [ ];
     currentWordArray = [ ];
-    guessesLeft = 10;
+    guessesLeft = 13;
     currentWord;
     current.textContent = "Current Word:  " + underscore + "  ";
     guessed.textContent = "Letters Already Guessed: ";
@@ -92,14 +93,12 @@ document.addEventListener("keypress", function(event) {
   var guess = String.fromCharCode(event.keyCode).toUpperCase();
 //if user's guess is right
   if (currentWord.indexOf(guess) > -1) {
-    for (i = 0; i < currentWord.length; i++) {
-      if (currentWord[i] === guess) {
-      }
-    }
+
     for (index = 0; index < currentWord.length; index++) {
       if (currentWordArray[index] === guess) {
         underscore[index] = guess;
-        current.textContent = "Current Word:  " + underscore + "  ";
+        word = underscore.join("  ");      //joins array so no commas displayed
+        current.textContent = "Current Word:  " + word + "  ";
         win();
       }
     }
