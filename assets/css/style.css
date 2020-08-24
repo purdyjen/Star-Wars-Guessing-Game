@@ -1,6 +1,6 @@
 h1 {
     font-family: 'Audiowide', cursive;
-    margin-left: 30%;
+    text-align: center;
     margin-top: 10px;
     color: #ffffff;
 }
@@ -10,13 +10,16 @@ h2 {
     font-size: large;
     color: #ffffff;
     margin: 25px;
+    display: inline;
 }
 
-button {
+#play-again {
     font-family: 'Sigmar One', cursive;
-    margin: 10px;
+    margin: 30px auto;
     color: #ffffff;
     background-color: green;
+    display: block;
+    text-align: center;
 }
 
 body {
@@ -28,8 +31,45 @@ body {
 
 #current {
     font-size: x-large;
+    visibility: visible;
+    display: block;
 }
 
 li {
     color: #ffffff;
+}
+
+#buttons {
+    margin-top: 50 px;
+    padding-top: 50px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.letters {
+    text-align: center;
+    padding: 3px 5px 3px 5px;
+    margin: 3px;
+    font-size: large;
+    display: inline-block;
+    max-width: 75px;
+    min-width: 20px;
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+    display: block;
+}
+
+#letter-buttons {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 15px;
 }

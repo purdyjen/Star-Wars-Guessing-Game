@@ -53,6 +53,7 @@ for (var i=65; i<91; i++) {
         selectedLetter(this.value);
         this.disabled = true;
       });
+  charnow.setAttribute("class", "letters");
   charwrap.appendChild(charnow);
 }
 }
@@ -91,6 +92,9 @@ function startGame() {
 window.onload = function(event) {
   startGame();
 
+document.getElementById("letter-buttons").addEventListener("click", function () {
+  document.getElementById('buttons').classList.toggle("hidden");
+}, false);
 
 document
   .getElementById("play-again")
@@ -100,8 +104,8 @@ document
     currentWordArray = [ ];
     guessesLeft = 13;
     currentWord;
-    current.textContent = "Current Word:  " + underscore + "  ";
-    guessed.textContent = "Letters Already Guessed: ";
+    current.textContent = "Current Word:  " + underscore;
+    guessed.textContent = "Wrong Letters Guessed: ";
     remaining.textContent = "Number of Incorrect Guesses Remaining: 10";
     startGame();
     generateLetterButtons();
@@ -139,7 +143,7 @@ function selectedLetter(letter) {
     document.getElementById("remaining").textContent =
       "Number of Incorrect Guesses Remaining: " + guessesLeft;
     document.getElementById("guessed").textContent =
-      "Letters Already Guessed: " + wrongGuess + " ";
+      "Wrong Letters Guessed: " + wrongGuess + " ";
   }
 }
 document.addEventListener("keypress", function(event) {
@@ -172,7 +176,7 @@ document.addEventListener("keypress", function(event) {
     document.getElementById("remaining").textContent =
       "Number of Incorrect Guesses Remaining: " + guessesLeft;
     document.getElementById("guessed").textContent =
-      "Letters Already Guessed: " + wrongGuess + " ";
+      "Wrong Letters Guessed: " + wrongGuess + " ";
   }
 });
 
