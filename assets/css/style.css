@@ -6,8 +6,8 @@ h1 {
 }
 
 h2 {
-    font-family: 'Cute Font', cursive;
-    font-size: large;
+    font-family: 'Audiowide', cursive;
+    font-size: medium;
     color: #ffffff;
     margin: 25px;
     display: inline;
@@ -15,6 +15,16 @@ h2 {
 
 header {
     margin-top: 50px;
+}
+
+footer {
+    font-family: 'Audiowide', cursive;
+    text-align: center;
+    color: #808080;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 10px;
+    padding-left: 5px;
 }
 
 .container-fluid {
@@ -30,6 +40,33 @@ header {
     text-align: center;
 }
 
+#game-info {
+    position: fixed;
+    left: 0;
+    margin-left: 5px;
+}
+
+#total-wins {
+    padding: 5px;
+    margin: 5px;
+}
+
+#remaining {
+    padding: 5px;
+    margin: 5px;
+}
+
+#guessed-title {
+    padding: 5px;
+    margin: 5px;
+}
+#guessed {
+    padding: 5px;
+    margin: 10px;
+    margin-left: 25px;
+
+}
+
 body {
     background-image: url(../images/star-wars-background-full-hd-459613.jpg);
     background-color: #000000;
@@ -40,7 +77,8 @@ body {
 #current {
     font-size: x-large;
     visibility: visible;
-    display: block;
+    /* display: block; */
+    vertical-align: auto;
 }
 
 li {
@@ -80,4 +118,11 @@ li {
     right: 0;
     margin-top: 15px;
     margin-right: 15px;
+}
+
+@media screen and (max-width: 640px) {
+
+    #game-info {
+        bottom: 50px;
+    }
 }

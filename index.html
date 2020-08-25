@@ -1,44 +1,45 @@
 <!DOCTYPE html>
-<html lang = "en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Star Wars Word Guessing Game</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Wars Guessing Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Cute+Font|Sigmar+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Audiowide|Cute+Font|Sigmar+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <header>
-<h1>Guess the Word from Star Wars!</h1>
+      <h1>Star Wars Guessing Game!</h1>
     </header>
     <div><button id="letter-buttons">Show/Hide Letters</button></div>
     <div class="container-fluid">
-        <h2 id="total-wins">Wins: </h2>
-        <h2 id="remaining">Number of Incorrect Guesses Remaining: 13</h2>
-        <h2 id="guessed">Wrong Letters Guessed: </h2>
-        <!-- <h1>Current Word: </h1> -->
-        <h1 id="current"></h1>
-        
-        <div class="hidden" id="buttons"></div>
-        <div><button id="play-again">New Game</button></div>
+      <div id="game-info">
+        <h2 id="total-wins">Wins:</h2>
+        <br>
+        <h2 id="remaining">Incorrect Guesses Remaining: 13</h2>
+        <br>
+        <h2 id="guessed-title">Wrong Letters Guessed:</h2>
+        <br>
+        <h2 id="guessed"></h2>
+      </div>
+      <h1 id="current"></h1>
 
-</div>
+      <div class="hidden" id="buttons"></div>
+      <div><button class="hidden" id="play-again">New Game</button></div>
+    </div>
 
-        <footer>
-            <div class="mobile-keyboard">
-                <!-- <input class="input" placeholder="Tap on the virtual keyboard to start" />                 -->
-            </div>
-            <audio>
-                <source id="win" src="assets/sounds/PM_FN_Events_LvlUps_PowerUps_12.mp3" type="audio/mpeg">
-                <source id="correct" src="assets/sounds/sound_spark_Laser-Like_Synth_Laser_Sweep_Burst_13.mp3" type="audio/mpeg">
-                <source id="wrong" src="assets/sounds/zapsplat_science_fiction_laser_fire_002_17743.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-              </audio>
-            <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
-        </footer>
-    
+    <footer>
+      <h5>Created by Jennifer Purdy</h5>
+    </footer>
+
     <script type="text/javascript" src="assets/javascript/game.js"></script>
-</body>
+  </body>
 </html>
