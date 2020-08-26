@@ -50,7 +50,7 @@ function generateLetterButtons() {
   for (var i = 65; i < 91; i++) {
     var charnow = document.createElement("input");
     charnow.type = "button";
-    charnow.value = String.fromCharCode(i);
+    charnow.value = String.fromCharCode(i) || String.fromCharCode(event.keyCode).toUpperCase()
     charnow.disabled = false;
     charnow.addEventListener("click", function () {
       selectedLetter(this.value);
@@ -70,7 +70,7 @@ function startGame() {
   function generateUnderscore() {
     for (var i = 0; i < currentWord.length; i++) {
       if (currentWord[i] == " ") {
-        underscore.push(" ");
+        underscore.push("   ");
       } else if (currentWord[i] == "-") {
         underscore.push("-");
       } else {
@@ -100,11 +100,6 @@ window.onload = function (event) {
     false
   );
 
-  //sound effects
-  // var winSound = new Audio("../sounds/PM_FN_Events_LvlUps_PowerUps_12.mp3");
-  // var correctSound = new Audio("../sounds/sound_spark_Laser-Like_Synth_Laser_Sweep_Burst_13.mp3")
-  // var incorrectSound = new Audio("../sounds/zapsplat_science_fiction_laser_fire_002_17743.mp3")
-
   document
     .getElementById("play-again")
     .addEventListener("click", function newGame() {
@@ -131,8 +126,8 @@ function selectedLetter(letter) {
       if (currentWordArray[index] === letter) {
         underscore[index] = letter;
         word = underscore.join("  "); //joins array so no commas displayed
+        console.log(word);
         current.textContent = word;
-        // correctSound.play();
         win();
       }
     }
@@ -149,7 +144,6 @@ function selectedLetter(letter) {
     wrongGuess.push(letter);
     var wrongGuesses = wrongGuess.join(" ");
     guessesLeft--;
-    // incorrectSound.play();
     lose();
     document.getElementById("remaining").textContent =
       "Incorrect Guesses Remaining: " + guessesLeft;
@@ -164,40 +158,38 @@ document.addEventListener("keypress", function (event) {
     for (index = 0; index < currentWord.length; index++) {
       if (currentWordArray[index] === guess) {
         underscore[index] = guess;
-        word = underscore.join("  "); //joins array so no commas displayed
+        word = underscore.join(" "); //joins array so no commas displayed
         current.textContent = word;
-        // correctSound.play();
         win();
+        return guess;
       }
     }
   } else if (regex.test(guess)){
     console.log("not a letter");
     return
   } else {
-    //if an incorrect letter has already been guessed
+                  //if an incorrect letter has already been guessed
     for (index = 0; index < wrongGuess.length; index++) {
       if (wrongGuess[index] === guess) {
         alert("You've already guessed that letter!");
         return;
       }
     }
-    //if incorrect letter is guessed, reduces number of remaining guesses by one
-
+                 //if incorrect letter is guessed, reduces number of remaining guesses by one
     wrongGuess.push(guess);
     var wrongGuesses = wrongGuess.join(" ");
     guessesLeft--;
     lose();
-    // incorrectSound.play();
     document.getElementById("remaining").textContent =
       "Incorrect Guesses Remaining: " + guessesLeft;
     document.getElementById("guessed").textContent =
        wrongGuesses + " ";
+       return guess;
   }
 });
 
 function win() {
   if (underscore.toString() === currentWordArray.toString()) {
-    // winSound.play();
     totalWins++;
     document.getElementById("total-wins").textContent = "Wins: " + totalWins;
     alert("You win!");

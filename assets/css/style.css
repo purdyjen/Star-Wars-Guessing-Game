@@ -1,8 +1,13 @@
+#screen{
+    white-space: pre;
+}
+
 h1 {
     font-family: 'Audiowide', cursive;
     text-align: center;
     margin-top: 10px;
     color: #ffffff;
+    white-space: pre;
 }
 
 h2 {
@@ -42,29 +47,38 @@ footer {
 
 #game-info {
     position: fixed;
-    left: 0;
     margin-left: 5px;
+    display: block;
+    width: 100%;
+    bottom: 50px;
+    line-height: 10px;
+    height: 125px;
 }
 
 #total-wins {
+    display: inline-block;
     padding: 5px;
     margin: 5px;
 }
 
 #remaining {
+    display: inline-block;
     padding: 5px;
     margin: 5px;
 }
 
 #guessed-title {
+    display: inline-block;
     padding: 5px;
     margin: 5px;
+    /* padding-bottom: 8px; */
 }
 #guessed {
+    display: inline-block;
     padding: 5px;
-    margin: 10px;
+    margin: 5px;
     margin-left: 25px;
-
+    /* padding-top: 20px; */
 }
 
 body {
@@ -77,8 +91,12 @@ body {
 #current {
     font-size: x-large;
     visibility: visible;
-    /* display: block; */
     vertical-align: auto;
+}
+
+#game-container {
+    display:block;
+    clear: both;
 }
 
 li {
@@ -90,6 +108,7 @@ li {
     padding-top: 50px;
     text-align: center;
     margin: 0 auto;
+    max-width: 30%;
 }
 
 .letters {
@@ -118,11 +137,37 @@ li {
     right: 0;
     margin-top: 15px;
     margin-right: 15px;
+    /* max-width: 50%; */
+}
+
+@media screen and (max-width: 980px) {
+
+    #buttons {
+        max-width: 75%;
+    }
+
+    #game-info {
+        bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #buttons {
+        max-width: 56%;
+    }
+
+    #game-info {
+        bottom: 50px;
+    }
 }
 
 @media screen and (max-width: 640px) {
 
     #game-info {
         bottom: 50px;
+    }
+
+    #buttons {
+        max-width: 80%;
     }
 }
