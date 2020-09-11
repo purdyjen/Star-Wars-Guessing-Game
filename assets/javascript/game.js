@@ -50,7 +50,8 @@ function generateLetterButtons() {
   for (var i = 65; i < 91; i++) {
     var charnow = document.createElement("input");
     charnow.type = "button";
-    charnow.value = String.fromCharCode(i) || String.fromCharCode(event.keyCode).toUpperCase()
+    charnow.value = String.fromCharCode(i) || String.fromCharCode(event.keyCode).toUpperCase();
+    charnow.name = charnow.value;
     charnow.disabled = false;
     charnow.addEventListener("click", function () {
       selectedLetter(this.value);
@@ -74,7 +75,7 @@ function startGame() {
       } else if (currentWord[i] == "-") {
         underscore.push("-");
       } else {
-        underscore.push(" _ ");
+        underscore.push("_");
       }
     }
     return underscore;
