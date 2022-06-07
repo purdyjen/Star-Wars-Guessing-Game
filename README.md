@@ -12,6 +12,6 @@ This is a Star Wars themed word/phrase guessing game.
 
 ## How to Play
 
-- Go to [https://purdyjen.github.io/Star-Wars-Hangman/](https://purdyjen.github.io/Star-Wars-Guessing-Game/)
+- Go to [https://purdyjen.github.io/Star-Wars-Guessing-Game/](https://purdyjen.github.io/Star-Wars-Guessing-Game/)
 - Use either the onscreen letters or your physical keyboard
 - Have fun!
